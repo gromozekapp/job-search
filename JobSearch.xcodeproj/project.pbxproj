@@ -21,6 +21,7 @@
 		48F11B8E2B06362100130173 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 48F11B8D2B06362100130173 /* SDWebImage */; };
 		48F11B902B07652300130173 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F11B8F2B07652300130173 /* APIResponse.swift */; };
 		48F11B922B076EBC00130173 /* String+strippingHTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F11B912B076EBC00130173 /* String+strippingHTML.swift */; };
+		49502F0D2C9E05320080722C /* UITextField+dismisKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49502F0C2C9E05320080722C /* UITextField+dismisKeyboard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		48F11B832B05401F00130173 /* DetailedJob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedJob.swift; sourceTree = "<group>"; };
 		48F11B8F2B07652300130173 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		48F11B912B076EBC00130173 /* String+strippingHTML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+strippingHTML.swift"; sourceTree = "<group>"; };
+		49502F0C2C9E05320080722C /* UITextField+dismisKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+dismisKeyboard.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				48F11B912B076EBC00130173 /* String+strippingHTML.swift */,
+				49502F0C2C9E05320080722C /* UITextField+dismisKeyboard.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -169,7 +172,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1410;
-				LastUpgradeCheck = 1410;
+				LastUpgradeCheck = 1540;
 				TargetAttributes = {
 					48F11B5B2B00E7E700130173 = {
 						CreatedOnToolsVersion = 14.1;
@@ -219,6 +222,7 @@
 				48F11B622B00E7E700130173 /* SceneDelegate.swift in Sources */,
 				48F11B922B076EBC00130173 /* String+strippingHTML.swift in Sources */,
 				48F11B742B00EE7C00130173 /* JobTableViewCell.swift in Sources */,
+				49502F0D2C9E05320080722C /* UITextField+dismisKeyboard.swift in Sources */,
 				48F11B902B07652300130173 /* APIResponse.swift in Sources */,
 				48F11B822B05400B00130173 /* JobDetailsViewModel.swift in Sources */,
 				48F11B782B00F85400130173 /* JobViewModel.swift in Sources */,
@@ -267,6 +271,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -327,6 +332,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

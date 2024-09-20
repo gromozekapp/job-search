@@ -53,6 +53,9 @@ class JobSearchViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        // for delegate dismisKeyboard
+        searchTextField.setupReturnKeyToDismiss()
+        
         setupViews()
         setupConstraints()
         view.backgroundColor = .white
