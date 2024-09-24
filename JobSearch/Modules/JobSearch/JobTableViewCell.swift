@@ -7,16 +7,19 @@
 import UIKit
 import SDWebImage
 
-class JobTableViewCell: UITableViewCell {
+final class JobTableViewCell: UITableViewCell {
     
     // MARK: - Properties
     private var currentImageURL: URL?
+    // properties for using custom colors from Asset Catalog
+    private let label = UILabel()
+    private let bgcustomColor = UIColor(named: "BGCustomColor")
+    private let customColor = UIColor(named: "CustomColor")
     
     // MARK: - UI Components
     // Container view for cell content
     let containerView: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
         view.layer.cornerRadius = 8
         view.layer.borderColor = UIColor.lightGray.cgColor
         view.layer.borderWidth = 1
@@ -83,6 +86,11 @@ class JobTableViewCell: UITableViewCell {
     // MARK: - Initializer
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        // Setting a dynamic color for the backgroung
+        contentView.backgroundColor = bgcustomColor
+        // Setting a dynamic color for the text, which will be adapted depending on the topic
+        label.textColor = customColor
+       
         setupViews()
         setupConstraints()
     }

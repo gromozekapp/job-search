@@ -7,7 +7,7 @@
 
 import Foundation
 
-class JobDetailsViewModel {
+final class JobDetailsViewModel {
     // Holds the ID for the job details
     var vacancyId: String?
     

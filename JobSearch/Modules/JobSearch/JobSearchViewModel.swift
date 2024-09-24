@@ -7,7 +7,7 @@
 
 import UIKit
 
-class JobSearchViewModel {
+final class JobSearchViewModel {
     
     // MARK: - Properties
     private var jobs: [Job] = []

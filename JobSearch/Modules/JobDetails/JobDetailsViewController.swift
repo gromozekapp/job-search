@@ -6,10 +6,15 @@
 
 import UIKit
 
-class JobDetailsViewController: UIViewController {
+final class JobDetailsViewController: UIViewController {
     
     // MARK: - Properties
     var viewModel = JobDetailsViewModel()
+    
+    // properties for using custom colors from Asset Catalog
+    private let label = UILabel()
+    private let bgcustomColor = UIColor(named: "BGCustomColor")
+    private let customColor = UIColor(named: "CustomColor")
     
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -64,7 +69,11 @@ class JobDetailsViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        // Setting a dynamic color for the backgroung
+        view.backgroundColor = bgcustomColor
+        // Setting a dynamic color for the text, which will be adapted depending on the topic
+        label.textColor = customColor
+       
         setupViews()
         setupConstraints()
         setupViewModel()

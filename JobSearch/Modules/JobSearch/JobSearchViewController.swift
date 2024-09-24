@@ -7,7 +7,7 @@
 import UIKit
 import Combine
 
-class JobSearchViewController: UIViewController {
+final class JobSearchViewController: UIViewController {
     // MARK: - Properties
     private var searchTimer: Timer?
     private var viewModel = JobSearchViewModel()
@@ -15,11 +15,14 @@ class JobSearchViewController: UIViewController {
     
     private var searchTextFieldPublisher: AnyCancellable?
     private var searchQuery: String = ""
+    // properties for using custom colors from Asset Catalog
+    private let label = UILabel()
+    private let bgcustomColor = UIColor(named: "BGCustomColor")
+    private let customColor = UIColor(named: "CustomColor")
     
     // MARK: - UI Elements
     private let searchTextField: UITextField = {
         let textField = UITextField()
-        textField.backgroundColor = .lightGray.withAlphaComponent(0.3)
         textField.placeholder = "Должность, ключевые слова"
         textField.borderStyle = .roundedRect
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -28,6 +31,7 @@ class JobSearchViewController: UIViewController {
     
     private let noResultsLabel: UILabel = {
         let label = UILabel()
+        label.font = .boldSystemFont(ofSize: 24)
         label.text = "Введите в поиск название, и появится список вакансий"
         label.textAlignment = .center
         label.numberOfLines = 0
@@ -55,10 +59,13 @@ class JobSearchViewController: UIViewController {
         super.viewDidLoad()
         // for delegate dismisKeyboard
         searchTextField.setupReturnKeyToDismiss()
-        
+        // Setting a dynamic color for the backgroung
+        view.backgroundColor = bgcustomColor
+        // Setting a dynamic color for the text, which will be adapted depending on the topic
+        label.textColor = customColor
+       
         setupViews()
         setupConstraints()
-        view.backgroundColor = .white
         setupSearchTextFieldPublisher()
     }
     
@@ -142,13 +149,6 @@ extension JobSearchViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Handle cell selection and navigation to job details
-        if let selectedIndexPath = self.selectedIndexPath, selectedIndexPath != indexPath {
-            if let selectedCell = tableView.cellForRow(at: selectedIndexPath) as? JobTableViewCell {
-                selectedCell.containerView.backgroundColor = .white
-            }
-        }
-        
         guard let cell = tableView.cellForRow(at: indexPath) as? JobTableViewCell else { return }
         cell.selectionStyle = .none
         
@@ -164,8 +164,7 @@ extension JobSearchViewController: UITableViewDelegate {
                 self.navigationController?.pushViewController(detailsVC, animated: true)
             }
         }
-        
-        cell.containerView.backgroundColor = .lightGray.withAlphaComponent(0.3)
+ 
         selectedIndexPath = indexPath
     }
 }
@@ -179,7 +178,6 @@ extension JobSearchViewController: UITableViewDataSource {
         }
         let jobViewModel = viewModel.viewModelForJob(at: indexPath.row)
         cell.configure(with: jobViewModel)
-        cell.containerView.backgroundColor = (indexPath == selectedIndexPath) ? .lightGray.withAlphaComponent(0.3) : .white
         return cell
     }
 }
